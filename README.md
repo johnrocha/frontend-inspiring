@@ -30,24 +30,24 @@ R: Não, porque mesmo havendo a chamada do arquivo manifest, o arquivo não exis
 ## Angular Questão 4:
 
 ### a) Para que serve o método ngOnInit, quais são os outros métodos do Angular lifecycle hooks e para que servem?
-R:
+R: O ngOnInit é carregado depois que do nosso construtor é inicializado. Ele é um gancho de ciclo de vida chamado pelo Angular para indicar que o Angular concluiu a criação do componente. Uma instância de componente possui um ciclo de vida que inicia quando o Angular instancia a classe de componente e renderiza a visualização do componente junto com as visualizações filho. O ciclo de vida continua com a detecção de alterações, pois o Angular verifica quando as propriedades vinculadas aos dados mudam e atualiza a visualização e a instância do componente conforme necessário. O ciclo de vida termina quando o Angular destrói a instância do componente e remove seu modelo renderizado do DOM. As diretivas têm um ciclo de vida semelhante, pois o Angular cria, atualiza e destrói instâncias no decorrer da execução.
 
 ### b) Neste projeto, estamos usando os componentes gráficos da versão 4 da biblioteca gráfica do Ionic. Nesta versão, os componentes são Web Components. Explique o que são Web Components e explique quais são as vantagens deles.
-R: 
+R: É uma coleção de componentes de IU para a construção de aplicativos de plataforma cruzada de alta qualidade. Esses componentes são todos construídos com HTML, CSS e JavaScript e podem ser facilmente implantados nativamente em dispositivos iOS e Android, desktop com Electron ou na web como um aplicativo web progressivo.
 
 ### c) Para que serve a tag ngFor do angular?
-R:
+R: Ele itera um vetor de acordo com o seu módulo ts.
 
 
 ### d) O que o codigo abaixo representa no arquivo list.page.ts?
 `legends: Array<string> = []`
-R
+R Ele apresenta uma variável do tipo Array e aceitando somente string, sendo atribuída um array vazio.
 
 ### e) Como funciona a api Events do Ionic? Para que serve?
-R: 
+R: Ele é ativado quando há eventos na página, como cliques, passar o ponteiro do mouse por cima, etc.
 
 ### f) O que é flexbox? Para que servem as tags ion-grid, ion-row, ion-col? Quais as vantagens em utilizálas?
-R: 
+R: É uma maneira de organizar as partes dos componentes na tela, as tegs do ionic ja vem com as vantagens de serem responsivas e de fácil estilização.
 
 ## Angular Questão 6:
 
