@@ -26,12 +26,39 @@ const customIcon = {
     strokeWeight: 3
 };
 
+const ableIcon = {
+    path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+    fillColor: '#fff',
+    fillOpacity: 0.98,
+    scale: 0.98,
+    strokeColor: '#666666',
+    strokeWeight: 3
+};
+
 function addMarker(marker) {
+    var mytext = marker.name;
+    var myinfowindow = new google.maps.InfoWindow({
+        content: mytext
+    });
     var marker = new google.maps.Marker({
         map: map,
         position: new google.maps.LatLng(marker.lat, marker.lng),
         icon: customIcon,
-        title: marker.name
+        title: marker.name,
+        infowindow: myinfowindow
+    });
+
+    google.maps.event.addListener(marker, 'click', function(){
+        if(!marker.open){
+            marker.infowindow.open(map,marker);
+            marker.open = true;
+            marker.setIcon(ableIcon);
+        }
+        else if(marker.infowindow){
+            marker.infowindow.close(map);
+            marker.open = false;
+            marker.setIcon(customIcon);
+        }
     });
 }
 
@@ -55,6 +82,88 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    //Adicionando o primeiro marcador como exemplo
     addMarker(placesOfInterest[0]);
+    for(i=0;placesOfInterest.length; i++){
+        addMarker(placesOfInterest[i]);
+    }
 }
+
+function myLocation(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(getPosition,showError);
+    }
+    else{
+         alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function getPosition(position)
+ { 
+     UserLatitude = position.coords.latitude;
+     UserLongitude = position.coords.longitude;
+     showPosition(UserLatitude, UserLongitude);
+ }
+
+function showPosition(userLatitude, userLongitude){
+    lat= userLatitude;
+    lon= userLongitude;
+    var mytext = 'You are here!';
+    var myinfowindow = new google.maps.InfoWindow({
+        content: mytext
+    });
+    var mapOptions = {
+        center: new google.maps.LatLng(lat, lon),
+        gestureHandling: 'greedy',
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP]
+        },
+        disableDefaultUI: true,
+        scaleControl: true,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.DEFAULT,
+        }
+
+    };
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var marker = new google.maps.Marker({
+        map: map,
+        position: new google.maps.LatLng(lat, lon),
+        icon: customIcon,
+        title: 'You are here!',
+        infowindow: myinfowindow
+    });
+    google.maps.event.addListener(marker, 'click', function(){
+        if(!marker.open){
+            marker.infowindow.open(map,marker);
+            marker.open = true;
+            marker.setIcon(ableIcon);
+        }
+        else if(marker.infowindow){
+            marker.infowindow.close(map);
+            marker.open = false;
+            marker.setIcon(customIcon);
+        }
+    });
+}
+
+function showError(error)
+ {
+ switch(error.code) 
+   {
+   case error.PERMISSION_DENIED:
+     alert("User denied the request for Geolocation.");
+     break;
+   case error.POSITION_UNAVAILABLE:
+     alert("Location information is unavailable.")
+     break;
+   case error.TIMEOUT:
+     alert("The request to get user location timed out.")
+     break;
+   case error.UNKNOWN_ERROR:
+     alert("An unknown error occurred.")
+     break;
+   }
+ }
