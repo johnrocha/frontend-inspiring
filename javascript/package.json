@@ -1,0 +1,15 @@
+{
+  "name": "1.0",
+  "version": "0.4.2",
+  "description": "Primeira questão da avaliação de desenvolvimento web",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1 -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
