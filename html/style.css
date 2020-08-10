@@ -1,0 +1,35 @@
+.navbar-color{
+    color: #2b324f;
+}
+
+.image{
+    background-image: url("https://media.gettyimages.com/vectors/toy-blocks-vector-background-vector-seamless-pattern-vector-id1004203068?s=2048x2048");
+    background-color: #cccccc;
+}
+
+.online{
+    border-radius: 20px;
+}
+
+.person{
+    background-image: url("https://e-cdn-images.dzcdn.net/images/artist/5d458e0b292c4a8e86008c3f16beb124/264x264-000000-80-0-0.jpg");
+    background-color: #cccccc;
+}
+
+.error{
+    opacity: 0.7;
+    border-radius: 20px !important;
+}
+
+.no-margin{
+    margin-bottom: 0em !important;
+}
+
+hr{
+    border-top: 4px solid green; 
+}
+
+.no-margin-2{
+    margin-bottom: 0em !important;
+    margin-top: 0em !important;
+}
