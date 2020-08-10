@@ -47,24 +47,26 @@ R Ele apresenta uma variável do tipo Array e aceitando somente string, sendo at
 R: Ele é ativado quando há eventos na página, como cliques, passar o ponteiro do mouse por cima, etc.
 
 ### f) O que é flexbox? Para que servem as tags ion-grid, ion-row, ion-col? Quais as vantagens em utilizálas?
-R: É uma maneira de organizar as partes dos componentes na tela, as tegs do ionic ja vem com as vantagens de serem responsivas e de fácil estilização.
+R: É uma maneira de organizar as partes dos componentes na tela, as tags do ionic ja vem com as vantagens de serem responsivas e de fácil estilização.
 
 ## Angular Questão 6:
 
 ### a) Quais foram os problemas que você identificou?
-R:
+R: Não havia referencia para instalar o sass no package.json.
+   No constructor na home.page.ts LoadingController estava sem a letra r acarretando no erro de build.
+   A função dismissLoading() estava sendo chamada sem o this, implicando no erro de tipo.
 
 ### b) Ordene os problemas por ordem de criticidade, ou seja, liste todos os problemas encontrados na ordem de quais deveriam ser corrigidos primeiro em um cenário onde devessemos priorizar as correções.
-R:
+R: A letra do LoadingController , o pacote sass é imprescindível também, por ultimo dismissLoading().
 
 ### c) Justifique a ordem proposta no item anterior em termos de impacto para os usuários e dificuldade para corrigir o problema.
-R: 
+R: porque trava todo o sistema, o pacote sass é imprescindível, o dismissLoading() por último porque pelo menos você vê o sistema rodar e dessa maneira da pra compilar de forma mais eficaz.
 
 ### d) Para que servem os comandos async e await, encontrados na função presentLoading do arquivo home.page.ts?
-R:
+R: async é para ser assíncrono, não depender de outro carregamento, await é para esperar um promise.
 
 ### e) Quais as vantagens de utilizar async/await em códigos javascript/typescript?
-R:
+R: Ele tem uma reposta de carregamento muito mais eficaz, a ponto de mudar o código salvar e ver  a alteração em tempo real.
 
 ### f) Explique para que serve a seguinte lib encontrada no arquivo home.page.ts import * as _ from 'lodash';
-R:
+R: Ele acelera a manipulação de dados, como array e object, é uma lib muito conhecida e usada na comunidade javascript.
